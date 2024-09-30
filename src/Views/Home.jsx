@@ -2,9 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import CourseCard from '../components/CourseCard';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [coursesData,setCoursesData] = useState([]);
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
 
   const fetchCourses = async () => {
     try {

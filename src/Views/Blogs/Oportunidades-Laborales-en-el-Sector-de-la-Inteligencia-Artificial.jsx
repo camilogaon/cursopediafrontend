@@ -1,7 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Componente para el Blog
 const BlogOportunidadesLaboralesIA = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+  
   return (
     <>
       <section className='w-2/3'>

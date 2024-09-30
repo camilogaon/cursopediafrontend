@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import CourseCard from '../components/CourseCard';
+import { useLocation } from 'react-router-dom';
 
 const Courses = () => {
   const [coursesData,setCoursesData] = useState([]);
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
 
   const fetchCourses = async () => {
     try {

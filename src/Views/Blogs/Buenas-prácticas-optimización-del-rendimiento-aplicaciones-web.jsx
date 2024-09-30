@@ -1,7 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Componente para el Blog
 const BlogBuenasPracticasOptimizacionRendimientoAppWeb= () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
   return (
     <div className="max-w-4xl mx-auto py-10 px-5">
       {/* Título del Blog */}

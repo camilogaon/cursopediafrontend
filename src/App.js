@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { initGA, logPageView } from './analytics';
 import Navbar from './components/Navbar';
 import Home from './Views/Home';
 import Courses from './Views/Courses';
@@ -16,6 +17,11 @@ import BlogAlgoritmosMasUsadosCienciaDeDatos from './Views/Blogs/Algoritmos-Mach
 import BlogSmartContractsQueSon from './Views/Blogs/Smart-contracts-Qué-son-cómo-funcionan';
 
 function App() {
+  useEffect(() => {
+    initGA(); // Inicializa Google Analytics
+    logPageView(); // Registra la primera visita
+  }, []);
+  
   return (
     <Router> {/* Asegúrate de envolver todo en Router */}
       <section className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]">

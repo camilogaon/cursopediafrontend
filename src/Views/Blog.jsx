@@ -1,7 +1,14 @@
 import React from 'react';
 import BlogCard from '../components/BlogCard';
+import { useLocation } from 'react-router-dom';
 
 const Blog = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+  
   const blogs = [
     {
       title: 'Oportunidades Laborales en el Sector de la Inteligencia Artificial',

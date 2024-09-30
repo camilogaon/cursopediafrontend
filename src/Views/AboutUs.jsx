@@ -1,6 +1,13 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 
 const AboutUs = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+
   return (
     <section className=" py-16">
       <div className="container mx-auto px-6">
