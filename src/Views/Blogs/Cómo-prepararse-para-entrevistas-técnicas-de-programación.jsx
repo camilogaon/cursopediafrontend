@@ -49,7 +49,7 @@ const BlogPrepararseEntrevistasTecnicasProgramacion= () => {
 
         <h2 className="text-2xl font-semibold my-4">4. Prepárate para Preguntas de Diseño de Sistemas</h2>
         <p>
-          Para roles de desarrollo más avanzados, es común que te hagan preguntas sobre diseño de sistemas. En este tipo de preguntas, se espera que diseñes un sistema escalable, eficiente y mantenible. Familiarízate con conceptos como bases de datos distribuidas, cachés, balanceadores de carga y patrones de diseño. Un buen recurso para empezar es el libro <a href="https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119" target="_blank" rel="noopener noreferrer" className="text-blue-600">"System Design Interview" de Alex Xu</a>.
+          Para roles de desarrollo más avanzados, es común que te hagan preguntas sobre diseño de sistemas. En este tipo de preguntas, se espera que diseñes un sistema escalable, eficiente y mantenible. Familiarízate con conceptos como bases de datos distribuidas, cachés, balanceadores de carga y patrones de diseño. Un buen recurso para empezar es el libro <a href="https://amzn.to/3N7THIC" target="_blank" rel="noopener noreferrer" className="text-blue-600">"System Design Interview" de Alex Xu</a>.
         </p>
 
         <h2 className="text-2xl font-semibold my-4">5. Entiende los Fundamentos de las Tecnologías que Usarás</h2>
