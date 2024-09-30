@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CourseCard from '../components/CourseCard';
 import { useLocation } from 'react-router-dom';
+import { logPageView } from '../analytics';
 
 const Courses = () => {
   const [coursesData,setCoursesData] = useState([]);

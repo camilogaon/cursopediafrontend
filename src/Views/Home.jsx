@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import CourseCard from '../components/CourseCard';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { logPageView } from '../analytics';
 
 const Home = () => {
   const [coursesData,setCoursesData] = useState([]);

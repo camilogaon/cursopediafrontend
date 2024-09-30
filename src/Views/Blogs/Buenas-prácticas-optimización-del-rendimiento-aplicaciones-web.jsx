@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { logPageView } from '../../analytics';
+import { useEffect } from 'react';
 
 // Componente para el Blog
 const BlogBuenasPracticasOptimizacionRendimientoAppWeb= () => {

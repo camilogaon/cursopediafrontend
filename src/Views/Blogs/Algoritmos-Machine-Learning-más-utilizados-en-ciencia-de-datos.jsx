@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { logPageView } from '../../analytics';
+import { useEffect } from 'react';
 
 // Componente para el Blog
 const BlogAlgoritmosMasUsadosCienciaDeDatos= () => {
@@ -8,7 +10,7 @@ const BlogAlgoritmosMasUsadosCienciaDeDatos= () => {
   useEffect(() => {
     logPageView();
   }, [location]);
-  
+
   return (
     <div className="max-w-4xl mx-auto py-10 px-5">
       {/* Título del Blog */}
