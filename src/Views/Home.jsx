@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      <section className="w-full h-screen flex items-center justify-center py-12 md:py-24 lg:py-32 xl:py-32">
+      <section className="w-full flex items-center justify-center py-12 md:py-32 lg:py-44">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
@@ -66,7 +66,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="w-full h-screen flex items-center justify-center py-12 md:py-24 lg:py-24">
+      <section className="w-full flex items-center justify-center py-8 md:py-32 lg:py-44">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
@@ -85,6 +85,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </>
   );
 };
