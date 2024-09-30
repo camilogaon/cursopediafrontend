@@ -8,7 +8,7 @@ const Home = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('http://localhost:3000/courses');
+      const response = await fetch('https://cursopediabackend-production.up.railway.app/courses');
       if (!response.ok) {
         throw new Error('Error al obtener los cursos');
       }
