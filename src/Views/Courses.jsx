@@ -36,9 +36,12 @@ const Courses = () => {
           Cursos Disponibles
         </h1>
         <AdComponent/>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 justify-items-center ">
-          {coursesData.map(course => (
-            <CourseCard key={course.id} course={course} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 justify-items-center">
+          {coursesData.map((course, index) => (
+            <React.Fragment key={course.id}>
+              <CourseCard course={course} />
+              {(index + 1) % 6 === 0 && <AdComponent />}
+            </React.Fragment>
           ))}
         </div>
       </div>
