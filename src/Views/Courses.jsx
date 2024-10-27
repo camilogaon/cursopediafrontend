@@ -3,6 +3,7 @@ import CourseCard from '../components/CourseCard';
 import { useLocation } from 'react-router-dom';
 import { logPageView } from '../analytics';
 import AdComponent from '../components/AdComponent';
+import AddCurse from '../components/AddCurse';
 
 const Courses = () => {
   const [coursesData,setCoursesData] = useState([]);
@@ -40,7 +41,7 @@ const Courses = () => {
           {coursesData.map((course, index) => (
             <React.Fragment key={course.id}>
               <CourseCard course={course} />
-              {(index + 1) % 6 === 0 && <AdComponent />}
+              {(index + 1) % 6 === 0 && <AddCurse />}
             </React.Fragment>
           ))}
         </div>
