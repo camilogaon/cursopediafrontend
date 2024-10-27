@@ -64,14 +64,18 @@ const Blog = () => {
   ];
 
   return (
-    <div className="p-5 flex justify-center">
-      <AdComponent/>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {blogs.map((blog, index) => (
-          <BlogCard key={index} blog={blog} />
-        ))}
+    <>
+      <div className='flex items-center justify-center mt-5 mb-3'>
+        <AdComponent/>
       </div>
-    </div>
+      <div className="p-5 flex justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {blogs.map((blog, index) => (
+            <BlogCard key={index} blog={blog} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
