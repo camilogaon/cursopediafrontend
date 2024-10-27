@@ -3,6 +3,7 @@ import BlogCard from '../components/BlogCard';
 import { useLocation } from 'react-router-dom';
 import { logPageView } from '../analytics';
 import { useEffect } from 'react';
+import AdComponent from '../components/AdComponent';
 
 const Blog = () => {
   const location = useLocation();
@@ -64,6 +65,7 @@ const Blog = () => {
 
   return (
     <div className="p-5 flex justify-center">
+      <AdComponent/>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {blogs.map((blog, index) => (
           <BlogCard key={index} blog={blog} />

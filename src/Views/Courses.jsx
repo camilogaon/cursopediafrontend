@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CourseCard from '../components/CourseCard';
 import { useLocation } from 'react-router-dom';
 import { logPageView } from '../analytics';
+import AdComponent from '../components/AdComponent';
 
 const Courses = () => {
   const [coursesData,setCoursesData] = useState([]);
@@ -34,6 +35,7 @@ const Courses = () => {
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-center mb-8">
           Cursos Disponibles
         </h1>
+        <AdComponent/>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 justify-items-center ">
           {coursesData.map(course => (
             <CourseCard key={course.id} course={course} />
