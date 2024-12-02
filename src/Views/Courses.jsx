@@ -41,7 +41,6 @@ const Courses = () => {
           {coursesData.map((course, index) => (
             <React.Fragment key={course.id}>
               <CourseCard course={course} />
-              {(index + 1) % 6 === 0 && <AddCurse />}
             </React.Fragment>
           ))}
         </div>
