@@ -65,9 +65,6 @@ const Blog = () => {
 
   return (
     <>
-      <div className='flex items-center justify-center mt-5 mb-3'>
-        <AdComponent/>
-      </div>
       <div className="p-5 flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {blogs.map((blog, index) => (
