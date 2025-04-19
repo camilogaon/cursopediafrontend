@@ -39,7 +39,7 @@ const Home = () => {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Aprende con los mejores cursos online
               </h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+              <p className="mx-auto max-w-[700px] text-gray-800 md:text-xl dark:text-gray-400">
                 Descubre una amplia variedad de cursos impartidos por expertos en diversas áreas. Mejora tus habilidades y alcanza tus metas profesionales.
               </p>
             </div>

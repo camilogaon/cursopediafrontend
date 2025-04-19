@@ -10,7 +10,6 @@ const Courses = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
   const [certificateFilter, setCertificateFilter] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,9 +19,7 @@ const Courses = () => {
   const fetchCourses = async () => {
     try {
       const response = await fetch('https://cursopediabackend.onrender.com/courses');
-      if (!response.ok) {
-        throw new Error('Error al obtener los cursos');
-      }
+      if (!response.ok) throw new Error('Error al obtener los cursos');
       const data = await response.json();
       setCoursesData(data);
       setFilteredCourses(data);
@@ -56,70 +53,84 @@ const Courses = () => {
   }, [categoryFilter, priceFilter, certificateFilter, coursesData]);
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center mt-5">
-      <div className="container px-4 md:px-16">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-center mb-8">
-          Cursos Disponibles
+    <section className="w-full min-h-screen py-16">
+      <div className="container mx-auto px-4 md:px-8">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 tracking-tight">
+          Explora nuestros cursos
         </h1>
 
-        <div className="mb-8">
-          <button
-            className="w-full bg-blue-500 text-white py-2 rounded-md shadow-md md:hidden"
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            {showFilters ? 'Ocultar Filtros' : 'Mostrar Filtros'}
-          </button>
-          <div
-            className={`mt-4 transition-all duration-300 ${
-              showFilters ? 'block' : 'hidden'
-            } md:block`}
-          >
-            <div className="flex flex-col md:flex-row justify-center gap-4  p-4 ">
-              <select
-                className="border rounded-md p-2 px-4 w-full md:w-auto"
-                value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-              >
-                <option value="">Todas las Categorías</option>
-                <option value="Programacion">Programación</option>
-                <option value="Ciencia de Datos">Ciencia de Datos</option>
-                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
-                <option value="Marketing Digital">Marketing Digital</option>
-                <option value="Ciberseguridad">Ciberseguridad</option>
-                <option value="Idiomas">Idiomas</option>
-                <option value="Sistema gestion ISO">Sistema gestion ISO</option>
-              </select>
+        {/* Filtros */}
+        <div className="mb-12 w-full flex justify-center">
+          <div className="w-full max-w-5xl px-4">
+            <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 shadow-md">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <select
+                  className="w-full px-4 py-2 text-white bg-blue-900/40 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                >
+                  <option value="">Todas las Categorías</option>
+                  <option value="Programacion">Programación</option>
+                  <option value="Ciencia de Datos">Ciencia de Datos</option>
+                  <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                  <option value="Marketing Digital">Marketing Digital</option>
+                  <option value="Ciberseguridad">Ciberseguridad</option>
+                  <option value="Idiomas">Idiomas</option>
+                  <option value="Sistema gestion ISO">Sistema gestión ISO</option>
+                </select>
 
-              <select
-                className="border rounded-md p-2 w-full md:w-auto"
-                value={priceFilter}
-                onChange={(e) => setPriceFilter(e.target.value)}
-              >
-                <option value="">Todos los Precios</option>
-                <option value="Gratis">Gratis</option>
-                <option value="Pago">Pago</option>
-              </select>
+                <select
+                  className="w-full px-4 py-2 text-white bg-blue-900/40 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={priceFilter}
+                  onChange={(e) => setPriceFilter(e.target.value)}
+                >
+                  <option value="">Todos los Precios</option>
+                  <option value="Gratis">Gratis</option>
+                  <option value="Pago">Pago</option>
+                </select>
 
-              <select
-                className="border rounded-md p-2 w-full md:w-auto"
-                value={certificateFilter}
-                onChange={(e) => setCertificateFilter(e.target.value)}
-              >
-                <option value="">Con y Sin Certificado</option>
-                <option value="Sí">Con Certificado</option>
-                <option value="No">Sin Certificado</option>
-              </select>
+                <select
+                  className="w-full px-4 py-2 text-white bg-blue-900/40 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={certificateFilter}
+                  onChange={(e) => setCertificateFilter(e.target.value)}
+                >
+                  <option value="">Con y Sin Certificado</option>
+                  <option value="Sí">Con Certificado</option>
+                  <option value="No">Sin Certificado</option>
+                </select>
+
+                <button
+                  onClick={() => {
+                    setCategoryFilter('');
+                    setPriceFilter('');
+                    setCertificateFilter('');
+                  }}
+                  className="w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition"
+                >
+                  Limpiar
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20 justify-items-center">
-          {filteredCourses.map((course) => (
-            <React.Fragment key={course.id}>
-              <CourseCard course={course} />
-            </React.Fragment>
-          ))}
+        {/* Grid de cursos */}
+        <div className="w-full flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  px-4">
+            {filteredCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+          </div>
         </div>
+
+
+
+        {/* Sin resultados */}
+        {filteredCourses.length === 0 && (
+          <div className="text-center mt-20 text-gray-500 text-lg">
+            No se encontraron cursos con los filtros seleccionados.
+          </div>
+        )}
       </div>
     </section>
   );
