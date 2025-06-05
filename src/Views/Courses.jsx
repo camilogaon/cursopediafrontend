@@ -18,7 +18,7 @@ const Courses = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await fetch('https://cursopediabackend.onrender.com/courses');
+      const response = await fetch('https://cursopediabackend.vercel.app/courses');
       if (!response.ok) throw new Error('Error al obtener los cursos');
       const data = await response.json();
       setCoursesData(data);
